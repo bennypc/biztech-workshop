@@ -1,0 +1,23 @@
+
+
+<form id="taskForm">
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button type="submit">Add Task</button>
+</form>
+
+<script>
+    // Step 1: Add an event listener to the form submission
+    document.getElementById('taskForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent the form from refreshing
+
+        // Step 2: Get the input field and use .value to retrieve the user's input
+        let taskInputValue = document.getElementById('taskInput').value;
+
+        // Step 3: Log the input value to the console
+        console.log('User entered:', taskInputValue);
+    });
+</script>
+
+
+
+

@@ -1,0 +1,20 @@
+body {
+    background-color: pink;
+  }
+h1 {
+    color: darkblue;
+    font-style: italic;
+}
+p {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: green
+}
+
+h1 {
+    color: blue;
+    font-size: 24px;
+}
+
+
+

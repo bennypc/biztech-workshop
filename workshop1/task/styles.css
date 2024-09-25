@@ -1,0 +1,66 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container */
+.container {
+    background-color: white;
+    padding: 20px;
+    /* Add missing border-radius property */
+    /* Add missing box-shadow property */
+    width: 400px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    /* Change the colour to something more appropriate */
+    color: orange
+    /* Add missing margin-bottom */
+}
+
+/* Form styling */
+form {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 75%;
+    /* Add padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    /* Add padding */
+    /* Add background-colour for the button */
+    color: white;
+    border: none;
+    /* Add border-radius */
+    cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+    /* Add background-colour for the button when hovered over */
+}
+
+/* Task list */
+ul {
+    margin-top: 20px;
+    list-style-type: none;
+}
