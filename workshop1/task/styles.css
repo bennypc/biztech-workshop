@@ -19,17 +19,16 @@ body {
 .container {
     background-color: white;
     padding: 20px;
-    /* Add missing border-radius property */
-    /* Add missing box-shadow property */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 400px;
 }
 
 /* Heading */
 h1 {
     text-align: center;
-    /* Change the colour to something more appropriate */
-    color: orange
-    /* Add missing margin-bottom */
+    color: black;
+    margin-bottom: 20px;
 }
 
 /* Form styling */
@@ -46,17 +45,17 @@ input {
 }
 
 button {
-    /* Add padding */
-    /* Add background-colour for the button */
+    padding: 10px;
+    background-color: green;
     color: white;
     border: none;
-    /* Add border-radius */
+    border-radius: 5px;
     cursor: pointer;
 }
 
 /* Button hover effect */
 button:hover {
-    /* Add background-colour for the button when hovered over */
+    background-color: lightgreen;
 }
 
 /* Task list */
