@@ -1,4 +1,3 @@
-// Step 1: Validate the task length (max 50 characters)
 function handleTaskSubmission(event) {
   event.preventDefault(); // Prevent the form from refreshing
 
@@ -11,12 +10,19 @@ function handleTaskSubmission(event) {
     // If valid, log the task to the console
     console.log("Task entered:", taskInputValue);
 
-    // Clear the input field after submission
-    document.getElementById("taskInput").value = "";
+    addTaskToList(taskInputValue); // Add the task to the webpage
+
+    document.getElementById("taskInput").value = ""; // Clear the input field after submission
   }
 }
 
-// Step 2: Attach the event listener to the form
+function addTaskToList(task) {
+  let taskList = document.getElementById("taskList"); // Get the <ul> task list
+  let newTask = document.createElement("li"); // Create a new list item <li>
+  newTask.textContent = task; // Set the text of the new task
+  taskList.appendChild(newTask); // Add the task to the list
+}
+
 document
   .getElementById("taskForm")
   .addEventListener("submit", handleTaskSubmission);

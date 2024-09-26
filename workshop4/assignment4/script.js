@@ -1,4 +1,3 @@
-// Step 1: Validate the task length (max 50 characters)
 function handleTaskSubmission(event) {
   event.preventDefault(); // Prevent the form from refreshing
 
