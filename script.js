@@ -36,6 +36,7 @@ function fetchTasks() {
         deleteButton.textContent = "Delete";
 
         deleteButton.addEventListener("click", function () {
+          // deleting tasks listener
           deleteTaskFromBackend(tasks[i].task.id, newTask);
         });
 
