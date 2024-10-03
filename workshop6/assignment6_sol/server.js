@@ -25,6 +25,7 @@ app.post("/tasks", (req, res) => {
     id: tasks.length + 1, // Generate a new ID for the task
     task: req.body.task // Get the task from the request body
   };
+  cps;
   tasks.push(newTask); // Add the new task to the array
   res.json(newTask); // Send back the new task as a response
 });

@@ -7,15 +7,27 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-let tasks = [
-  { id: 1, task: "Do homework" },
-  { id: 2, task: "Laundry" },
-  { id: 3, task: "Eat dinner" },
-  { id: 4, task: "Go home" }
-];
+let tasks = [];
+let taskId = 0;
 
 app.get("/tasks", (request, response) => {
   response.json(tasks);
+});
+
+app.post("/tasks", (request, response) => {
+  const newTask = {
+    id: taskId++,
+    task: request.body.task
+  };
+
+  tasks.push(newTask);
+  response.json(newTask);
+});
+
+app.delete("/tasks/:id", (request, response) => {
+  const taskId = parseInt(request.params.id);
+  tasks = tasks.filter((task) => task.id !== taskId);
+  response.sendStatus(200);
 });
 
 app.listen(port, () => {

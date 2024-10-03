@@ -7,8 +7,7 @@ function handleTaskSubmission(event) {
   if (taskInputValue.length > 20) {
     alert("Task is too long. Please limit it to 20 characters.");
   } else {
-    // If valid, log the task to the console
-    console.log("Task entered:", taskInputValue);
+    addTaskToBackend(taskInputValue);
 
     // Clear the input field after submission
     document.getElementById("taskInput").value = "";
@@ -32,7 +31,57 @@ function fetchTasks() {
       for (let i = 0; i < tasks.length; i++) {
         const newTask = document.createElement("li");
         newTask.textContent = tasks[i].task;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", function () {
+          deleteTaskFromBackend(task.id, newTask);
+        });
+
+        newTask.appendChild(deleteButton);
+
         taskList.appendChild(newTask);
       }
     });
+}
+
+function addTaskToBackend(task) {
+  fetch("http://localhost:3000/tasks", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ task })
+  })
+    .then((response) => response.json())
+    .then((newTask) => {
+      console.log(newTask);
+      addTaskToList(newTask);
+    });
+}
+
+function addTaskToList(task) {
+  let taskList = document.getElementById("taskList");
+  let newTask = document.createElement("li");
+
+  newTask.textContent = task.task;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+
+  deleteButton.addEventListener("click", function () {
+    deleteTaskFromBackend(task.id, newTask);
+  });
+
+  newTask.appendChild(deleteButton);
+  taskList.appendChild(newTask);
+}
+
+function deleteTaskFromBackend(taskId, taskElement) {
+  fetch(`http://localhost:3000/tasks/${taskId}`, {
+    method: "DELETE"
+  }).then(() => {
+    taskElement.remove();
+  });
 }

@@ -27,6 +27,7 @@ function addTaskToBackend(task) {
   })
     .then((response) => response.json()) // Convert the server response to JSON
     .then((newTask) => {
+      console.log(newTask);
       addTaskToList(newTask); // Pass the entire newTask object
     })
     .catch((error) => {
